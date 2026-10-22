@@ -3,760 +3,525 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <!-- ════════════════════════════════════════════════════════════════════════
-       SEARCH ENGINE & METADATA CONFIGURATION (Discoverability & SEO)
-       ════════════════════════════════════════════════════════════════════════ -->
-  <title>Under Peer Pressure — Digital Citizenship Interactive Experience</title>
-  <meta name="description" content="Explore how online peer pressure impacts our choices, the psychology of digital belonging, and the 4 student case studies from Common Sense Media's digital citizenship curriculum." />
-  <meta name="author" content="Common Sense Media Education" />
-  <meta name="keywords" content="Under Peer Pressure, Common Sense Media, Digital Citizenship, Online Peer Pressure, Social Media Belonging, Teen Mental Health, Classroom Deck" />
+  <title>Under Peer Pressure — Digital Citizenship Presentation</title>
+  <meta name="description" content="Explore how online peer pressure impacts teen decisions, the psychology of digital belonging, and 4 classroom case studies from Common Sense Media." />
+  <meta name="author" content="Common Sense Education" />
   <link rel="canonical" href="https://yourdomain.com/under-peer-pressure/" />
-
-  <!-- Open Graph / Social Sharing -->
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Under Peer Pressure — Interactive Experience" />
+  <meta property="og:description" content="How does peer pressure online impact the decisions we make? An interactive slide-driven exploration." />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Under Peer Pressure — Digital Citizenship Presentation" />
-  <meta property="og:description" content="How does peer pressure online impact the decisions we make? An interactive, cinematic exploration of belonging, social media dynamics, and teen case studies." />
-  <meta property="og:image" content="https://yourdomain.com/under-peer-pressure/og-preview.png" />
-  <meta property="og:url" content="https://yourdomain.com/under-peer-pressure/" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Structured Data (Schema.org) for Google Discoverability -->
+  
+  <!-- Schema.org for Google Discoverability -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LearningResource",
-    "name": "Under Peer Pressure: Digital Citizenship Lesson Deck",
-    "description": "An interactive digital citizenship lesson investigating how online peer pressure influences decision-making, exploring belonging, and analyzing real-world student scenarios.",
-    "educationalLevel": "Middle School / High School (Grades 6-12)",
-    "learningResourceType": "Presentation / Slide Deck & Interactive Lesson",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Common Sense Media",
-      "url": "https://www.commonsense.org/education"
-    },
-    "inLanguage": "en",
-    "isAccessibleForFree": true
+    "name": "Under Peer Pressure",
+    "description": "Digital citizenship lesson exploring how online peer pressure influences decision-making.",
+    "publisher": { "@type": "Organization", "name": "Common Sense Media" }
   }
   </script>
 
-  <!-- Google Fonts: Space Grotesk + Plus Jakarta Sans + Outfit -->
+  <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- PDF.js Engine (Guarantees iPad & Mobile Compatibility) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 
   <style>
-    /* ══════════════════════════════════════════════════════════════════════
-       CSS DESIGN TOKENS & RESET
-       Vibrant magenta/purple (#721c84) + Electric Sunshine Yellow (#ffcc00)
-       ══════════════════════════════════════════════════════════════════════ */
     :root {
-      --primary-purple: #721c84;
-      --deep-purple: #460f54;
-      --dark-night: #1c0824;
-      --electric-yellow: #ffcb05;
-      --yellow-warm: #f5b700;
-      --paper-white: #ffffff;
-      --cream-bg: #faf7fc;
-      --ink-dark: #1f1425;
-      --ink-muted: #5d5366;
-      --border-purple: rgba(114, 28, 132, 0.18);
-      --grid-line: rgba(255, 255, 255, 0.08);
-      --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-mono: 'Space Grotesk', monospace;
-      --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
-      --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --purple-main: #7a1b8d;
+      --purple-dark: #370a41;
+      --bg-dark: #190520;
+      --yellow-pop: #ffcb05;
+      --yellow-light: #fff275;
+      --paper: #ffffff;
+      --ink: #1f1425;
+      --ink-muted: #5f5569;
+      --border-subtle: rgba(255, 255, 255, 0.12);
+      --font-display: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
     }
 
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      color-scheme: dark light;
-      font-size: 16px;
-    }
-
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      background-color: var(--dark-night);
-      color: var(--paper-white);
+      background-color: var(--bg-dark);
+      color: #fff;
       font-family: var(--font-body);
       overflow-x: hidden;
       line-height: 1.6;
-      text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: antialiased;
     }
 
-    /* Ambient Background Grid Pattern (matching Common Sense slide deck) */
-    .grid-backdrop {
-      position: fixed;
-      inset: 0;
-      background-image: 
-        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
-        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
-      z-index: 0;
+    /* Ambient Common Sense Grid */
+    .grid-bg {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 36px 36px;
     }
 
-    /* ══════════════════════════════════════════════════════════════════════
-       TOP PROGRESS BAR & GLOBAL NAVIGATION DOCK
-       ══════════════════════════════════════════════════════════════════════ */
-    #progress-tracker {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 4px;
-      width: 0%;
-      background: linear-gradient(90deg, var(--electric-yellow), #ff7b00, var(--electric-yellow));
-      z-index: 1000;
-      transition: width 0.1s ease-out;
+    /* Scroll Tracker */
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 4px; width: 0%;
+      background: linear-gradient(90deg, var(--yellow-pop), #ff8400);
+      z-index: 1000; transition: width 0.1s ease-out;
     }
 
+    /* Top Bar */
     .top-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 2.5rem;
-      backdrop-filter: blur(14px);
-      background: rgba(28, 8, 36, 0.75);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      z-index: 900;
-    }
-
-    .brand-mark {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-      color: var(--paper-white);
-      font-weight: 700;
-      font-size: 0.95rem;
-      letter-spacing: -0.01em;
-    }
-
-    .brand-badge {
-      background: var(--paper-white);
-      color: var(--primary-purple);
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      font-weight: 800;
-      font-size: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .brand-badge svg {
-      width: 13px;
-      height: 13px;
-      fill: #10b981;
-    }
-
-    .top-actions {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .btn-nav {
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--paper-white);
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.25s var(--ease-cinematic);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .btn-nav:hover {
-      background: rgba(255, 255, 255, 0.18);
-      border-color: rgba(255, 255, 255, 0.3);
-      transform: translateY(-1px);
-    }
-
-    .btn-nav.primary {
-      background: var(--electric-yellow);
-      color: var(--dark-night);
-      border-color: var(--electric-yellow);
-      font-weight: 700;
-    }
-
-    .btn-nav.primary:hover {
-      background: #ffe047;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(255, 203, 5, 0.3);
-    }
-
-    /* Floating Scene Navigator (Pill Dock) */
-    .scene-navigator {
-      position: fixed;
-      right: 2rem;
-      top: 50%;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-      z-index: 800;
-    }
-
-    .nav-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.25);
-      border: 2px solid transparent;
-      cursor: pointer;
-      position: relative;
-      transition: all 0.3s var(--ease-cinematic);
-    }
-
-    .nav-dot:hover, .nav-dot.active {
-      background: var(--electric-yellow);
-      transform: scale(1.4);
-      box-shadow: 0 0 12px var(--electric-yellow);
-    }
-
-    .nav-dot::after {
-      content: attr(data-title);
-      position: absolute;
-      right: 24px;
-      top: 50%;
-      transform: translateY(-50%) translateX(10px);
-      background: rgba(28, 8, 36, 0.95);
-      color: var(--paper-white);
-      font-size: 0.75rem;
-      font-weight: 600;
-      white-space: nowrap;
-      padding: 0.3rem 0.6rem;
-      border-radius: 6px;
-      pointer-events: none;
-      opacity: 0;
-      transition: all 0.2s ease;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .nav-dot:hover::after {
-      opacity: 1;
-      transform: translateY(-50%) translateX(0);
-    }
-
-    /* ══════════════════════════════════════════════════════════════════════
-       SECTION FRAMEWORK & CINEMATIC SLIDES
-       ══════════════════════════════════════════════════════════════════════ */
-    .scene-section {
-      min-height: 100vh;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 6rem 2rem;
-      z-index: 10;
-    }
-
-    .scene-container {
-      max-width: 1240px;
-      width: 100%;
-      margin: 0 auto;
-    }
-
-    /* ── SCENE 01: HERO OPENING ─────────────────────────────────────────── */
-    .hero-scene {
-      background: radial-gradient(circle at 65% 45%, #8f1fa7 0%, #68157a 40%, var(--dark-night) 95%);
-      overflow: hidden;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 3.5rem;
-      align-items: center;
-    }
-
-    .deck-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 0.35rem 0.85rem;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--electric-yellow);
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(3.2rem, 7vw, 6.2rem);
-      font-weight: 900;
-      line-height: 0.95;
-      letter-spacing: -0.03em;
-      color: var(--paper-white);
-      margin-bottom: 1.25rem;
-    }
-
-    .hero-title span {
-      display: block;
-      color: var(--electric-yellow);
-      text-shadow: 0 4px 25px rgba(255, 203, 5, 0.25);
-    }
-
-    .hero-subtitle {
-      font-size: clamp(1.2rem, 2.2vw, 1.7rem);
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.9);
-      max-width: 580px;
-      line-height: 1.4;
-      margin-bottom: 2rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.25rem;
-      align-items: center;
-    }
-
-    .cta-btn {
-      font-family: var(--font-display);
-      font-size: 1.05rem;
-      font-weight: 800;
-      padding: 1rem 2rem;
-      border-radius: 999px;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      cursor: pointer;
-      transition: all 0.3s var(--ease-cinematic);
-    }
-
-    .cta-btn.primary {
-      background: var(--electric-yellow);
-      color: var(--dark-night);
-      box-shadow: 0 10px 30px rgba(255, 203, 5, 0.35);
-    }
-
-    .cta-btn.primary:hover {
-      background: #ffe047;
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 15px 35px rgba(255, 203, 5, 0.45);
-    }
-
-    .cta-btn.ghost {
-      background: rgba(255, 255, 255, 0.08);
-      color: var(--paper-white);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-    }
-
-    .cta-btn.ghost:hover {
-      background: rgba(255, 255, 255, 0.16);
-      transform: translateY(-2px);
-    }
-
-    /* Visual Motif: Floating Speech Bubbles from Slide 1 */
-    .hero-visual-stage {
-      position: relative;
-      height: 480px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .speech-bubble {
-      position: absolute;
-      background: var(--paper-white);
-      color: var(--ink-dark);
-      font-family: var(--font-display);
-      font-weight: 800;
-      padding: 0.85rem 1.4rem;
-      border-radius: 1.5rem;
-      font-size: 1.1rem;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
-      animation: floatSlow 6s ease-in-out infinite;
-      z-index: 5;
-    }
-
-    .speech-bubble::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 28px;
-      border-width: 10px 10px 0;
-      border-style: solid;
-      border-color: var(--paper-white) transparent;
-      display: block;
-      width: 0;
-    }
-
-    .b1 { top: 12%; left: 10%; animation-delay: 0s; transform: rotate(-4deg); }
-    .b2 { top: 28%; right: 4%; animation-delay: 1.5s; transform: rotate(5deg); background: #fef08a; }
-    .b3 { top: 48%; left: 8%; animation-delay: 3s; transform: rotate(-2deg); }
-    .b4 { bottom: 16%; right: 14%; animation-delay: 2.2s; transform: rotate(3deg); background: #e0e7ff; }
-
-    .center-phone-mock {
-      position: absolute;
-      width: 250px;
-      height: 380px;
-      background: linear-gradient(145deg, #2b1137, #15061b);
-      border: 4px solid rgba(255, 255, 255, 0.2);
-      border-radius: 36px;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      text-align: center;
-      z-index: 2;
-    }
-
-    .pulse-ring {
-      width: 70px;
-      height: 70px;
-      border-radius: 999px;
-      background: var(--electric-yellow);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1rem;
-      box-shadow: 0 0 30px rgba(255, 203, 5, 0.6);
-      animation: pulse 2.5s infinite;
-    }
-
-    .pulse-ring svg {
-      width: 32px;
-      height: 32px;
-      fill: var(--dark-night);
-    }
-
-    .scroll-cue {
-      position: absolute;
-      bottom: 2.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.6);
-      z-index: 20;
-    }
-
-    .scroll-cue .mouse-wheel {
-      width: 22px;
-      height: 34px;
-      border: 2px solid rgba(255, 255, 255, 0.4);
-      border-radius: 12px;
-      position: relative;
-    }
-
-    .scroll-cue .mouse-wheel::after {
-      content: '';
-      position: absolute;
-      top: 6px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 4px;
-      height: 6px;
-      background: var(--electric-yellow);
-      border-radius: 999px;
-      animation: scrollBounce 1.8s infinite;
-    }
-
-    /* ── SCENE 02: THE INTRODUCTION ─────────────────────────────────────── */
-    .intro-scene {
-      background: linear-gradient(180deg, var(--dark-night) 0%, #3a0d47 100%);
-    }
-
-    .paper-banner {
-      background: var(--paper-white);
-      color: var(--ink-dark);
-      padding: 3.5rem 3rem;
-      border-radius: 24px;
-      box-shadow: 0 25px 65px rgba(0, 0, 0, 0.4);
-      position: relative;
-      margin-bottom: 3rem;
-    }
-
-    .paper-banner::before {
-      content: 'ESSENTIAL QUESTION';
-      position: absolute;
-      top: -14px;
-      left: 2rem;
-      background: var(--electric-yellow);
-      color: var(--ink-dark);
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: 0.8rem;
-      padding: 0.3rem 0.9rem;
-      border-radius: 6px;
-      letter-spacing: 0.05em;
-    }
-
-    .big-question {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 4.5vw, 3.8rem);
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-    }
-
-    .big-question mark {
-      background: rgba(255, 203, 5, 0.45);
-      color: inherit;
-      padding: 0 0.3rem;
-      border-radius: 4px;
-    }
-
-    .intro-metadata-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-
-    .meta-box {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 16px;
-      padding: 1.75rem;
-      backdrop-filter: blur(8px);
-      transition: transform 0.3s ease;
-    }
-
-    .meta-box:hover {
-      transform: translateY(-4px);
-      border-color: var(--electric-yellow);
-    }
-
-    .meta-label {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--electric-yellow);
-      margin-bottom: 0.6rem;
-      font-weight: 700;
-    }
-
-    .meta-text {
-      font-size: 1.05rem;
-      color: rgba(255, 255, 255, 0.9);
-      line-height: 1.5;
-    }
-
-    /* ── SCENE 03: THE BIG PICTURE (VOCABULARY & OBJECTIVES) ────────────── */
-    .spectrum-scene {
-      background: #2b0836;
-    }
-
-    .section-eyebrow {
-      text-align: center;
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      color: var(--electric-yellow);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 0.75rem;
-    }
-
-    .section-headline {
-      text-align: center;
-      font-family: var(--font-display);
-      font-size: clamp(2.2rem, 4vw, 3.5rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 3.5rem;
-    }
-
-    .vocab-duo {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      margin-bottom: 3.5rem;
-    }
-
-    .vocab-card {
-      background: var(--paper-white);
-      color: var(--ink-dark);
-      border-radius: 24px;
-      padding: 2.75rem;
-      position: relative;
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
-      transition: all 0.3s var(--ease-cinematic);
-    }
-
-    .vocab-card:hover {
-      transform: translateY(-6px);
-    }
-
-    .vocab-card .badge {
-      background: var(--electric-yellow);
-      color: var(--ink-dark);
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: 0.85rem;
-      padding: 0.4rem 1rem;
-      border-radius: 8px;
-      display: inline-block;
-      margin-bottom: 1.5rem;
-      letter-spacing: 0.04em;
-    }
-
-    .vocab-card h3 {
-      font-family: var(--font-display);
-      font-size: 2.2rem;
-      font-weight: 900;
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
-    }
-
-    .vocab-card p {
-      font-size: 1.15rem;
-      color: var(--ink-muted);
-      line-height: 1.6;
-    }
-
-    .objectives-panel {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 20px;
-      padding: 2.5rem;
-    }
-
-    .obj-heading {
-      font-family: var(--font-display);
-      font-size: 1.3rem;
-      font-weight: 800;
-      color: var(--electric-yellow);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .objectives-list {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      list-style: none;
-    }
-
-    .obj-item {
-      background: rgba(0, 0, 0, 0.25);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 14px;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .obj-num {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      background: var(--primary-purple);
-      color: var(--paper-white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-family: var(--font-mono);
-      font-size: 0.95rem;
-    }
-
-    .obj-text {
-      font-size: 0.95rem;
-      color: rgba(255, 255, 255, 0.85);
-      line-height: 1.5;
-    }
-
-    /* ── SCENE 04: THE 4 TEEN STORIES (BINGO BANDWAGON) ─────────────────── */
-    .stories-scene {
-      background: radial-gradient(circle at 30% 20%, #4c0f5c 0%, #1c0824 80%);
-    }
-
-    .story-tabs {
-      display: flex;
-      justify-content: center;
-      gap: 0.75rem;
-      margin-bottom: 2.5rem;
-      flex-wrap: wrap;
-    }
-
-    .story-tab-btn {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: var(--paper-white);
-      font-family: var(--font-display);
-      font-size: 1rem;
-      font-weight: 700;
-      padding: 0.7rem 1.6rem;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: all 0.25s ease;
-    }
-
-    .story-tab-btn:hover {
-      background: rgba(255, 255, 255, 0.16);
-    }
-
-    .story-tab-btn.active {
-      background: var(--electric-yellow);
-      color: var(--dark-night);
-      border-color: var(--electric-yellow);
-    }
-
-    .story-showcase {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start;
-    }
-
-    .story-narrative-card {
-      background: var(--paper-white);
-      color: var(--ink-dark);
-      border-radius: 24px;
-      padding: 2.75rem;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
-      position: relative;
-    }
-
-    .story-badge {
-      display: inline-block;
-      background: #eed2ee;
-      color: var(--primary-purple);
-      font-weight: 800;
-      font-size: 0.85rem;
-      padding: 0.35rem 0.85rem;
-      border-radius: 6px;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .story-
+      position: fixed; top: 0; left: 0; right: 0; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 1.5rem; backdrop-filter: blur(12px); background: rgba(25, 5, 32, 0.85);
+      border-bottom: 1px solid var(--border-subtle); z-index: 900;
+    }
+    .brand { font-family: var(--font-display); font-weight: 800; font-size: 0.95rem; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+    .badge { background: #fff; color: var(--purple-main); font-weight: 900; font-size: 0.7rem; padding: 0.2rem 0.5rem; border-radius: 999px; }
+
+    /* Scene Framework */
+    section {
+      min-height: 100vh; position: relative; z-index: 10;
+      display: flex; align-items: center; justify-content: center;
+      padding: 5rem 1.5rem;
+    }
+    .container { max-width: 1160px; width: 100%; margin: 0 auto; }
+
+    /* Buttons */
+    .btn {
+      font-family: var(--font-display); font-size: 0.95rem; font-weight: 700;
+      padding: 0.75rem 1.5rem; border-radius: 999px; text-decoration: none;
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer;
+      transition: transform 0.2s, background 0.2s; border: none;
+    }
+    .btn-primary { background: var(--yellow-pop); color: var(--ink); }
+    .btn-primary:hover { background: var(--yellow-light); transform: translateY(-2px); }
+    .btn-ghost { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid var(--border-subtle); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.2); transform: translateY(-2px); }
+
+    /* Paper Card Motif */
+    .paper-card {
+      background: var(--paper); color: var(--ink); border-radius: 20px;
+      padding: 2.2rem; box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    }
+
+    /* SCENE 01: HERO */
+    .scene-hero { background: radial-gradient(circle at 60% 40%, #8e21a5 0%, var(--purple-dark) 50%, var(--bg-dark) 100%); }
+    .hero-layout { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center; }
+    .hero-title { font-family: var(--font-display); font-size: clamp(2.8rem, 6.5vw, 5.5rem); font-weight: 900; line-height: 0.95; margin-bottom: 1.5rem; }
+    .hero-title span { color: var(--yellow-pop); }
+    .hero-sub { font-size: 1.2rem; color: rgba(255,255,255,0.88); margin-bottom: 2rem; max-width: 500px; }
+    .tagline { display: inline-block; background: rgba(255,255,255,0.15); color: var(--yellow-pop); font-size: 0.8rem; font-weight: 800; padding: 0.3rem 0.8rem; border-radius: 999px; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* Floating Bubbles from Slide 1 */
+    .bubble-stage { position: relative; height: 360px; }
+    .bubble {
+      position: absolute; background: #fff; color: var(--ink); font-family: var(--font-display);
+      font-weight: 800; padding: 0.7rem 1.2rem; border-radius: 18px; font-size: 1rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3); animation: float 5s ease-in-out infinite;
+    }
+    .bb1 { top: 15%; left: 10%; transform: rotate(-5deg); }
+    .bb2 { top: 40%; right: 5%; background: var(--yellow-light); transform: rotate(4deg); animation-delay: 1.5s; }
+    .bb3 { bottom: 15%; left: 20%; transform: rotate(-2deg); animation-delay: 2.8s; }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+    /* SCENE 02: ESSENTIAL QUESTION */
+    .scene-intro { background: linear-gradient(180deg, var(--bg-dark) 0%, #2f0838 100%); }
+    .question-box { position: relative; margin-bottom: 2.5rem; }
+    .question-box::before { content: 'ESSENTIAL QUESTION'; position: absolute; top: -14px; left: 2rem; background: var(--yellow-pop); color: var(--ink); font-size: 0.75rem; font-weight: 900; padding: 0.2rem 0.6rem; border-radius: 4px; }
+    .question-heading { font-family: var(--font-display); font-size: clamp(1.8rem, 3.8vw, 3.2rem); font-weight: 800; line-height: 1.2; }
+    .question-heading mark { background: rgba(255,203,5,0.4); color: inherit; padding: 0 0.2rem; border-radius: 3px; }
+    .meta-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .meta-card { background: rgba(255,255,255,0.06); border: 1px solid var(--border-subtle); padding: 1.5rem; border-radius: 14px; }
+    .meta-card h4 { color: var(--yellow-pop); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 0.4rem; }
+
+    /* SCENE 03: VOCABULARY & OBJECTIVES */
+    .scene-big-picture { background: #26052d; }
+    .vocab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem; }
+    .vocab-card h3 { font-family: var(--font-display); font-size: 1.8rem; margin: 0.5rem 0 0.75rem; color: var(--purple-main); }
+    .vocab-badge { background: var(--yellow-pop); font-size: 0.7rem; font-weight: 900; padding: 0.2rem 0.5rem; border-radius: 4px; text-transform: uppercase; }
+    .objectives-strip { background: rgba(255,255,255,0.04); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 2rem; }
+    .obj-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem; }
+    .obj-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .obj-num { width: 30px; height: 30px; border-radius: 50%; background: var(--yellow-pop); color: var(--ink); display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0; }
+
+    /* SCENE 04: THE 4 STORIES (BINGO BANDWAGON) */
+    .scene-highlights { background: radial-gradient(circle at center, #3c0c4a 0%, var(--bg-dark) 100%); }
+    .story-selector { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+    .tab-btn { background: rgba(255,255,255,0.08); color: #fff; border: 1px solid var(--border-subtle); padding: 0.5rem 1.25rem; border-radius: 999px; font-weight: 700; cursor: pointer; transition: 0.2s; }
+    .tab-btn.active { background: var(--yellow-pop); color: var(--ink); border-color: var(--yellow-pop); }
+    .story-panel { min-height: 250px; }
+
+    /* SCENE 05: DOCUMENT REVEAL */
+    .scene-reveal { background: linear-gradient(180deg, var(--bg-dark) 0%, #2f0838 100%); text-align: center; }
+    .mockup-frame {
+      max-width: 620px; margin: 2rem auto; background: #fff; color: var(--ink); border-radius: 16px;
+      padding: 2rem; box-shadow: 0 30px 70px rgba(0,0,0,0.6); border: 4px solid var(--yellow-pop);
+      text-align: left;
+    }
+    .mockup-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; padding-bottom: 0.75rem; margin-bottom: 1rem; }
+
+    /* SCENE 06: IPAD-COMPATIBLE PDF CANVAS VIEWER */
+    .scene-viewer { background: #130318; }
+    .viewer-box {
+      background: #1f0727; border: 1px solid var(--border-subtle);
+      border-radius: 18px; overflow: hidden; width: 100%;
+    }
+    .viewer-bar {
+      padding: 0.8rem 1.2rem; background: rgba(0,0,0,0.4);
+      display: flex; flex-wrap: wrap; gap: 0.75rem;
+      justify-content: space-between; align-items: center;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .page-controls { display: flex; align-items: center; gap: 0.5rem; }
+    .control-btn {
+      background: var(--yellow-pop); color: var(--ink); border: none;
+      padding: 0.35rem 0.8rem; border-radius: 6px; font-weight: 800;
+      font-size: 0.85rem; cursor: pointer;
+    }
+    .control-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .canvas-container {
+      width: 100%; min-height: 480px; display: flex;
+      justify-content: center; align-items: center; background: #221029;
+      padding: 1.5rem 0.5rem; overflow-x: auto; position: relative;
+    }
+    #pdf-canvas {
+      max-width: 100%; height: auto !important;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.7); border-radius: 8px;
+    }
+    #loading-prompt {
+      position: absolute; color: var(--yellow-pop); font-weight: 700;
+      font-size: 1rem; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    }
+
+    /* SCENE 07: CLOSING */
+    .scene-final { background: radial-gradient(circle at center, #531261 0%, var(--bg-dark) 80%); text-align: center; }
+    .quote-box { margin-bottom: 2.5rem; }
+    .footer { border-top: 1px solid var(--border-subtle); padding: 2rem 0; margin-top: 4rem; text-align: center; color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+
+    @media (max-width: 860px) {
+      .hero-layout, .vocab-grid, .meta-cards, .obj-cols { grid-template-columns: 1fr; }
+      .bubble-stage { display: none; }
+      .viewer-bar { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid-bg"></div>
+  <div id="progress-bar"></div>
+
+  <!-- Top Navigation -->
+  <header class="top-bar">
+    <a href="#hero" class="brand">
+      <span class="badge">CURRICULUM</span> Under Peer Pressure
+    </a>
+    <div style="display:flex; gap:0.5rem;">
+      <a href="#reader" class="btn btn-ghost" style="font-size:0.8rem; padding:0.4rem 0.8rem;">Slide Viewer</a>
+      <a href="presentation.pdf" download class="btn btn-primary" style="font-size:0.8rem; padding:0.4rem 0.8rem;">Download PDF</a>
+    </div>
+  </header>
+
+  <!-- SCENE 01: HERO -->
+  <section id="hero" class="scene-hero">
+    <div class="container hero-layout">
+      <div>
+        <span class="tagline">Digital Citizenship • Grades 6–12</span>
+        <h1 class="hero-title">Under<br/>Peer <span>Pressure</span></h1>
+        <p class="hero-sub">How does online culture push us to conform? An interactive lesson examining social dynamics, digital validation, and authentic identity.</p>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+          <a href="#intro" class="btn btn-primary">Explore Presentation ↓</a>
+          <a href="#reader" class="btn btn-ghost">Jump to Slides</a>
+        </div>
+      </div>
+      <div class="bubble-stage" aria-hidden="true">
+        <div class="bubble bb1">Check this out! 🔥</div>
+        <div class="bubble bb2">Post that! 👀</div>
+        <div class="bubble bb3">Send that to me! 💬</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENE 02: ESSENTIAL QUESTION -->
+  <section id="intro" class="scene-intro">
+    <div class="container">
+      <div class="paper-card question-box">
+        <h2 class="question-heading">How does <mark>peer pressure online</mark> impact the decisions we make?</h2>
+      </div>
+      <div class="meta-cards">
+        <div class="meta-card">
+          <h4>What it Contains</h4>
+          <p>18 presentation slides covering digital belonging, social media psychology, and 4 teenage case studies.</p>
+        </div>
+        <div class="meta-card">
+          <h4>Target Audience</h4>
+          <p>Middle and high school students, educators, digital wellness counselors, and parents.</p>
+        </div>
+        <div class="meta-card">
+          <h4>Core Purpose</h4>
+          <p>To help young people recognize unconscious online compliance and cultivate empathy without pressure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENE 03: VOCABULARY & OBJECTIVES -->
+  <section id="big-picture" class="scene-big-picture">
+    <div class="container">
+      <div class="vocab-grid">
+        <div class="paper-card">
+          <span class="vocab-badge">Core Concept A</span>
+          <h3>Belonging</h3>
+          <p>The human need and feeling of being accepted, valued, and included within a group or community.</p>
+        </div>
+        <div class="paper-card">
+          <span class="vocab-badge">Core Concept B</span>
+          <h3>Peer Pressure</h3>
+          <p>The influence from others that pushes someone to adopt certain behaviors, attitudes, or values to fit in.</p>
+        </div>
+      </div>
+      <div class="objectives-strip">
+        <h3 style="font-family:var(--font-display); margin-bottom:1rem; color:var(--yellow-pop);">Lesson Learning Objectives</h3>
+        <div class="obj-cols">
+          <div class="obj-item">
+            <span class="obj-num">1</span>
+            <p>Understand the connection between the need for belonging and peer pressure online.</p>
+          </div>
+          <div class="obj-item">
+            <span class="obj-num">2</span>
+            <p>Identify digital peer pressure across viral trends, speedruns, and group chats.</p>
+          </div>
+          <div class="obj-item">
+            <span class="obj-num">3</span>
+            <p>Reflect on small actions to help peers feel valued for who they are both online and offline.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENE 04: THE 4 STORIES (BINGO BANDWAGON) -->
+  <section id="highlights" class="scene-highlights">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <span class="tagline">Interactive Analysis</span>
+        <h2 style="font-family:var(--font-display); font-size:2.4rem;">Bingo Bandwagon: 4 Case Studies</h2>
+      </div>
+      <div class="story-selector">
+        <button class="tab-btn active" onclick="switchStory(0)">1. Freddie's Story</button>
+        <button class="tab-btn" onclick="switchStory(1)">2. David's Story</button>
+        <button class="tab-btn" onclick="switchStory(2)">3. Carrie's Story</button>
+        <button class="tab-btn" onclick="switchStory(3)">4. Heather's Story</button>
+      </div>
+      <div class="paper-card story-panel" id="story-display">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENE 05: DOCUMENT REVEAL -->
+  <section id="reveal" class="scene-reveal">
+    <div class="container">
+      <span class="tagline">Official Curriculum Source</span>
+      <h2 style="font-family:var(--font-display); font-size:2.8rem; margin-bottom:1rem;">The Complete Slide Deck</h2>
+      <p style="color:rgba(255,255,255,0.8); max-width:600px; margin:0 auto 2rem;">Access the exact 18-slide classroom resource provided by Common Sense Media Education.</p>
+      <div class="mockup-frame">
+        <div class="mockup-header">
+          <strong>presentation.pdf</strong>
+          <span style="font-size:0.75rem; background:#eee; padding:0.2rem 0.5rem; border-radius:4px;">18 SLIDES • PDF FORMAT</span>
+        </div>
+        <p style="color:var(--ink-muted); margin-bottom:1.5rem; font-size:0.95rem;">Includes classroom discussion starters, the "Bingo Bandwagon" game activity, and the complete teacher guidance cues.</p>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+          <a href="#reader" class="btn btn-primary">View Presentation Below ↓</a>
+          <a href="presentation.pdf" target="_blank" class="btn btn-ghost" style="color:var(--ink); border-color:#ccc;">Open Native Tab ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENE 06: IPAD-COMPATIBLE CANVAS SLIDE VIEWER -->
+  <section id="reader" class="scene-viewer">
+    <div class="container">
+      <div class="viewer-box">
+        <div class="viewer-bar">
+          <div class="page-controls">
+            <button id="prev-btn" class="control-btn" onclick="onPrevPage()">◀ Previous</button>
+            <span style="font-weight:700; font-size:0.85rem; color:#fff; margin:0 0.5rem;">
+              Slide <span id="page-num">1</span> of <span id="page-count">-</span>
+            </span>
+            <button id="next-btn" class="control-btn" onclick="onNextPage()">Next ▶</button>
+          </div>
+          <div style="display:flex; gap:0.5rem;">
+            <a href="presentation.pdf" target="_blank" class="btn btn-ghost" style="font-size:0.75rem; padding:0.35rem 0.75rem;">Open Fullscreen ↗</a>
+            <a href="presentation.pdf" download class="btn btn-primary" style="font-size:0.75rem; padding:0.35rem 0.75rem;">Download</a>
+          </div>
+        </div>
+        
+        <div id="canvas-container" class="canvas-container">
+          <div id="loading-prompt">
+            <span>Loading Presentation Slides...</span>
+          </div>
+          <canvas id="pdf-canvas"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENE 07: CLOSING -->
+  <section id="final" class="scene-final">
+    <div class="container">
+      <div class="paper-card quote-box" style="max-width:800px; margin:0 auto;">
+        <h2 style="font-family:var(--font-display); font-size: clamp(2rem, 4vw, 3.4rem); color:var(--purple-main); margin-bottom:1rem;">We can thrive in a digital world.</h2>
+        <p style="font-size:1.15rem; color:var(--ink-muted);">"Small actions like showing support for someone being themselves can create positive ripples that help others feel valued for who they are."</p>
+      </div>
+      <div style="margin-top:2.5rem; display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+        <a href="#hero" class="btn btn-ghost">↑ Back to Top</a>
+        <a href="presentation.pdf" download class="btn btn-primary">Download Complete PDF</a>
+      </div>
+      <div class="footer">
+        <p>© Common Sense Media. Educational resource based on the curriculum at <a href="https://www.commonsense.org/education" target="_blank" style="color:var(--yellow-pop);">commonsense.org/education</a></p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // 1. Scroll Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      document.getElementById('progress-bar').style.width = ((winScroll / height) * 100) + '%';
+    });
+
+    // 2. Stories Data (Slides 10-13)
+    const stories = [
+      {
+        title: "Freddie's Story: The Validation Cycle",
+        focus: "Validation seeking & curated reality",
+        content: "Freddie spent an hour editing a photo that received few likes. Wondering if he should delete it, he reposted an old hit instead. Later, he spent hours practicing a viral dance just to fit in, refreshing notifications constantly, and ended up posting a 'Weekend vibes' photo without actually having weekend plans."
+      },
+      {
+        title: "David's Story: The Streamer Challenge",
+        focus: "Passive compliance & social proof",
+        content: "A favorite gaming streamer announced a speedrun submission challenge. David wasn't that into the game, but when his friends at school were in a frenzy talking about their submissions and asked, 'You haven't done it yet?', David laughed nervously, promised he would, and liked posts he wasn't even impressed by."
+      },
+      {
+        title: "Carrie's Story: The Viral Cause",
+        focus: "Performative activism & fear of silence",
+        content: "Carrie reposted a complex social issue late at night because 'everyone was sharing it' and she feared people would think she didn't care. In the morning group chat, when a questionable statistic was shared, Carrie typed a fact-check but deleted it to remain silent rather than risk confrontation."
+      },
+      {
+        title: "Heather's Story: Lifestyle Envy",
+        focus: "Comparison culture & fear of being uncool",
+        content: "Admiring an influencer's morning routine, Heather bought knockoff items. Seeing luxury vacation photos, she dug up an old family picnic photo, applied sunny filters, and later hid the like count when it underperformed. When peers mocked her favorite creator, she laughed along to avoid seeming uncool."
+      }
+    ];
+
+    function switchStory(index) {
+      const display = document.getElementById('story-display');
+      document.querySelectorAll('.tab-btn').forEach((tab, i) => tab.classList.toggle('active', i === index));
+      const s = stories[index];
+      display.innerHTML = `
+        <span style="font-size:0.75rem; font-weight:800; background:#eee; padding:0.2rem 0.5rem; border-radius:4px; text-transform:uppercase; color:var(--purple-main);">${s.focus}</span>
+        <h3 style="font-family:var(--font-display); font-size:1.8rem; margin:0.6rem 0 1rem; color:var(--ink);">${s.title}</h3>
+        <p style="color:var(--ink-muted); font-size:1.05rem; line-height:1.7;">${s.content}</p>
+      `;
+    }
+    switchStory(0);
+
+    // 3. PDF.js Canvas Rendering (Engineered for iPad & Touch)
+    const url = 'presentation.pdf';
+    let pdfDoc = null,
+        pageNum = 1,
+        pageRendering = false,
+        pageNumPending = null;
+
+    const canvas = document.getElementById('pdf-canvas');
+    const ctx = canvas.getContext('2d');
+    const loadingPrompt = document.getElementById('loading-prompt');
+
+    // Specify PDF.js worker
+    window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    function renderPage(num) {
+      pageRendering = true;
+      pdfDoc.getPage(num).then((page) => {
+        // Calculate viewport width to fit iPad and desktop screens
+        const containerWidth = Math.min(document.getElementById('canvas-container').clientWidth - 20, 960);
+        const unscaledViewport = page.getViewport({ scale: 1 });
+        const scale = containerWidth / unscaledViewport.width;
+        const viewport = page.getViewport({ scale: scale });
+
+        // High-DPI support for crisp text on iPad Retina screens
+        const outputScale = window.devicePixelRatio || 1;
+        canvas.width = Math.floor(viewport.width * outputScale);
+        canvas.height = Math.floor(viewport.height * outputScale);
+        canvas.style.width = Math.floor(viewport.width) + "px";
+        canvas.style.height = Math.floor(viewport.height) + "px";
+
+        const transform = outputScale !== 1 ? [outputScale, 0, 0, outputScale, 0, 0] : null;
+
+        const renderContext = {
+          canvasContext: ctx,
+          transform: transform,
+          viewport: viewport
+        };
+
+        const renderTask = page.render(renderContext);
+
+        renderTask.promise.then(() => {
+          pageRendering = false;
+          loadingPrompt.style.display = 'none';
+          if (pageNumPending !== null) {
+            renderPage(pageNumPending);
+            pageNumPending = null;
+          }
+        });
+      });
+
+      document.getElementById('page-num').textContent = num;
+      document.getElementById('prev-btn').disabled = (num <= 1);
+      document.getElementById('next-btn').disabled = (num >= pdfDoc.numPages);
+    }
+
+    function queueRenderPage(num) {
+      if (pageRendering) {
+        pageNumPending = num;
+      } else {
+        renderPage(num);
+      }
+    }
+
+    function onPrevPage() {
+      if (pageNum <= 1) return;
+      pageNum--;
+      queueRenderPage(pageNum);
+    }
+
+    function onNextPage() {
+      if (pageNum >= pdfDoc.numPages) return;
+      pageNum++;
+      queueRenderPage(pageNum);
+    }
+
+    // Load PDF
+    pdfjsLib.getDocument(url).promise.then((pdfDoc_) => {
+      pdfDoc = pdfDoc_;
+      document.getElementById('page-count').textContent = pdfDoc.numPages;
+      renderPage(pageNum);
+    }).catch((err) => {
+      loadingPrompt.innerHTML = `
+        <span style="color:#ff6b6b;">Could not load presentation.pdf</span>
+        <span style="font-size:0.85rem; color:#fff;">Make sure <strong>presentation.pdf</strong> is uploaded to your GitHub repository in all lowercase.</span>
+      `;
+    });
+
+    // Resize listener for iPad orientation changes (portrait <-> landscape)
+    window.addEventListener('resize', () => {
+      if (pdfDoc) queueRenderPage(pageNum);
+    });
+  </script>
+</body>
+</html>
