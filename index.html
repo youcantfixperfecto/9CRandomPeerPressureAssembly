@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- ════════════════════════════════════════════════════════════════════════
+       SEARCH ENGINE & METADATA CONFIGURATION (Discoverability & SEO)
+       ════════════════════════════════════════════════════════════════════════ -->
+  <title>Under Peer Pressure — Digital Citizenship Interactive Experience</title>
+  <meta name="description" content="Explore how online peer pressure impacts our choices, the psychology of digital belonging, and the 4 student case studies from Common Sense Media's digital citizenship curriculum." />
+  <meta name="author" content="Common Sense Media Education" />
+  <meta name="keywords" content="Under Peer Pressure, Common Sense Media, Digital Citizenship, Online Peer Pressure, Social Media Belonging, Teen Mental Health, Classroom Deck" />
+  <link rel="canonical" href="https://yourdomain.com/under-peer-pressure/" />
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Under Peer Pressure — Digital Citizenship Presentation" />
+  <meta property="og:description" content="How does peer pressure online impact the decisions we make? An interactive, cinematic exploration of belonging, social media dynamics, and teen case studies." />
+  <meta property="og:image" content="https://yourdomain.com/under-peer-pressure/og-preview.png" />
+  <meta property="og:url" content="https://yourdomain.com/under-peer-pressure/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Structured Data (Schema.org) for Google Discoverability -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    "name": "Under Peer Pressure: Digital Citizenship Lesson Deck",
+    "description": "An interactive digital citizenship lesson investigating how online peer pressure influences decision-making, exploring belonging, and analyzing real-world student scenarios.",
+    "educationalLevel": "Middle School / High School (Grades 6-12)",
+    "learningResourceType": "Presentation / Slide Deck & Interactive Lesson",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Common Sense Media",
+      "url": "https://www.commonsense.org/education"
+    },
+    "inLanguage": "en",
+    "isAccessibleForFree": true
+  }
+  </script>
+
+  <!-- Google Fonts: Space Grotesk + Plus Jakarta Sans + Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ══════════════════════════════════════════════════════════════════════
+       CSS DESIGN TOKENS & RESET
+       Vibrant magenta/purple (#721c84) + Electric Sunshine Yellow (#ffcc00)
+       ══════════════════════════════════════════════════════════════════════ */
+    :root {
+      --primary-purple: #721c84;
+      --deep-purple: #460f54;
+      --dark-night: #1c0824;
+      --electric-yellow: #ffcb05;
+      --yellow-warm: #f5b700;
+      --paper-white: #ffffff;
+      --cream-bg: #faf7fc;
+      --ink-dark: #1f1425;
+      --ink-muted: #5d5366;
+      --border-purple: rgba(114, 28, 132, 0.18);
+      --grid-line: rgba(255, 255, 255, 0.08);
+      --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'Space Grotesk', monospace;
+      --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      color-scheme: dark light;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--dark-night);
+      color: var(--paper-white);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Ambient Background Grid Pattern (matching Common Sense slide deck) */
+    .grid-backdrop {
+      position: fixed;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ══════════════════════════════════════════════════════════════════════
+       TOP PROGRESS BAR & GLOBAL NAVIGATION DOCK
+       ══════════════════════════════════════════════════════════════════════ */
+    #progress-tracker {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--electric-yellow), #ff7b00, var(--electric-yellow));
+      z-index: 1000;
+      transition: width 0.1s ease-out;
+    }
+
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      backdrop-filter: blur(14px);
+      background: rgba(28, 8, 36, 0.75);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      z-index: 900;
+    }
+
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--paper-white);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: -0.01em;
+    }
+
+    .brand-badge {
+      background: var(--paper-white);
+      color: var(--primary-purple);
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .brand-badge svg {
+      width: 13px;
+      height: 13px;
+      fill: #10b981;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-nav {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--paper-white);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s var(--ease-cinematic);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-nav:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .btn-nav.primary {
+      background: var(--electric-yellow);
+      color: var(--dark-night);
+      border-color: var(--electric-yellow);
+      font-weight: 700;
+    }
+
+    .btn-nav.primary:hover {
+      background: #ffe047;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 203, 5, 0.3);
+    }
+
+    /* Floating Scene Navigator (Pill Dock) */
+    .scene-navigator {
+      position: fixed;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      z-index: 800;
+    }
+
+    .nav-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.25);
+      border: 2px solid transparent;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s var(--ease-cinematic);
+    }
+
+    .nav-dot:hover, .nav-dot.active {
+      background: var(--electric-yellow);
+      transform: scale(1.4);
+      box-shadow: 0 0 12px var(--electric-yellow);
+    }
+
+    .nav-dot::after {
+      content: attr(data-title);
+      position: absolute;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%) translateX(10px);
+      background: rgba(28, 8, 36, 0.95);
+      color: var(--paper-white);
+      font-size: 0.75rem;
+      font-weight: 600;
+      white-space: nowrap;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      pointer-events: none;
+      opacity: 0;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-dot:hover::after {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0);
+    }
+
+    /* ══════════════════════════════════════════════════════════════════════
+       SECTION FRAMEWORK & CINEMATIC SLIDES
+       ══════════════════════════════════════════════════════════════════════ */
+    .scene-section {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 2rem;
+      z-index: 10;
+    }
+
+    .scene-container {
+      max-width: 1240px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* ── SCENE 01: HERO OPENING ─────────────────────────────────────────── */
+    .hero-scene {
+      background: radial-gradient(circle at 65% 45%, #8f1fa7 0%, #68157a 40%, var(--dark-night) 95%);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .deck-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--electric-yellow);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 7vw, 6.2rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: var(--paper-white);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title span {
+      display: block;
+      color: var(--electric-yellow);
+      text-shadow: 0 4px 25px rgba(255, 203, 5, 0.25);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.2rem, 2.2vw, 1.7rem);
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 580px;
+      line-height: 1.4;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      align-items: center;
+    }
+
+    .cta-btn {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 800;
+      padding: 1rem 2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      cursor: pointer;
+      transition: all 0.3s var(--ease-cinematic);
+    }
+
+    .cta-btn.primary {
+      background: var(--electric-yellow);
+      color: var(--dark-night);
+      box-shadow: 0 10px 30px rgba(255, 203, 5, 0.35);
+    }
+
+    .cta-btn.primary:hover {
+      background: #ffe047;
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(255, 203, 5, 0.45);
+    }
+
+    .cta-btn.ghost {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--paper-white);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .cta-btn.ghost:hover {
+      background: rgba(255, 255, 255, 0.16);
+      transform: translateY(-2px);
+    }
+
+    /* Visual Motif: Floating Speech Bubbles from Slide 1 */
+    .hero-visual-stage {
+      position: relative;
+      height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .speech-bubble {
+      position: absolute;
+      background: var(--paper-white);
+      color: var(--ink-dark);
+      font-family: var(--font-display);
+      font-weight: 800;
+      padding: 0.85rem 1.4rem;
+      border-radius: 1.5rem;
+      font-size: 1.1rem;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+      animation: floatSlow 6s ease-in-out infinite;
+      z-index: 5;
+    }
+
+    .speech-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 28px;
+      border-width: 10px 10px 0;
+      border-style: solid;
+      border-color: var(--paper-white) transparent;
+      display: block;
+      width: 0;
+    }
+
+    .b1 { top: 12%; left: 10%; animation-delay: 0s; transform: rotate(-4deg); }
+    .b2 { top: 28%; right: 4%; animation-delay: 1.5s; transform: rotate(5deg); background: #fef08a; }
+    .b3 { top: 48%; left: 8%; animation-delay: 3s; transform: rotate(-2deg); }
+    .b4 { bottom: 16%; right: 14%; animation-delay: 2.2s; transform: rotate(3deg); background: #e0e7ff; }
+
+    .center-phone-mock {
+      position: absolute;
+      width: 250px;
+      height: 380px;
+      background: linear-gradient(145deg, #2b1137, #15061b);
+      border: 4px solid rgba(255, 255, 255, 0.2);
+      border-radius: 36px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .pulse-ring {
+      width: 70px;
+      height: 70px;
+      border-radius: 999px;
+      background: var(--electric-yellow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 30px rgba(255, 203, 5, 0.6);
+      animation: pulse 2.5s infinite;
+    }
+
+    .pulse-ring svg {
+      width: 32px;
+      height: 32px;
+      fill: var(--dark-night);
+    }
+
+    .scroll-cue {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.6);
+      z-index: 20;
+    }
+
+    .scroll-cue .mouse-wheel {
+      width: 22px;
+      height: 34px;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .scroll-cue .mouse-wheel::after {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 6px;
+      background: var(--electric-yellow);
+      border-radius: 999px;
+      animation: scrollBounce 1.8s infinite;
+    }
+
+    /* ── SCENE 02: THE INTRODUCTION ─────────────────────────────────────── */
+    .intro-scene {
+      background: linear-gradient(180deg, var(--dark-night) 0%, #3a0d47 100%);
+    }
+
+    .paper-banner {
+      background: var(--paper-white);
+      color: var(--ink-dark);
+      padding: 3.5rem 3rem;
+      border-radius: 24px;
+      box-shadow: 0 25px 65px rgba(0, 0, 0, 0.4);
+      position: relative;
+      margin-bottom: 3rem;
+    }
+
+    .paper-banner::before {
+      content: 'ESSENTIAL QUESTION';
+      position: absolute;
+      top: -14px;
+      left: 2rem;
+      background: var(--electric-yellow);
+      color: var(--ink-dark);
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 0.8rem;
+      padding: 0.3rem 0.9rem;
+      border-radius: 6px;
+      letter-spacing: 0.05em;
+    }
+
+    .big-question {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .big-question mark {
+      background: rgba(255, 203, 5, 0.45);
+      color: inherit;
+      padding: 0 0.3rem;
+      border-radius: 4px;
+    }
+
+    .intro-metadata-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .meta-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 1.75rem;
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s ease;
+    }
+
+    .meta-box:hover {
+      transform: translateY(-4px);
+      border-color: var(--electric-yellow);
+    }
+
+    .meta-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--electric-yellow);
+      margin-bottom: 0.6rem;
+      font-weight: 700;
+    }
+
+    .meta-text {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.5;
+    }
+
+    /* ── SCENE 03: THE BIG PICTURE (VOCABULARY & OBJECTIVES) ────────────── */
+    .spectrum-scene {
+      background: #2b0836;
+    }
+
+    .section-eyebrow {
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--electric-yellow);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-headline {
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 3.5rem;
+    }
+
+    .vocab-duo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .vocab-card {
+      background: var(--paper-white);
+      color: var(--ink-dark);
+      border-radius: 24px;
+      padding: 2.75rem;
+      position: relative;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+      transition: all 0.3s var(--ease-cinematic);
+    }
+
+    .vocab-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .vocab-card .badge {
+      background: var(--electric-yellow);
+      color: var(--ink-dark);
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 0.85rem;
+      padding: 0.4rem 1rem;
+      border-radius: 8px;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.04em;
+    }
+
+    .vocab-card h3 {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .vocab-card p {
+      font-size: 1.15rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    .objectives-panel {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 2.5rem;
+    }
+
+    .obj-heading {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--electric-yellow);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .objectives-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .obj-item {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .obj-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: var(--primary-purple);
+      color: var(--paper-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+    }
+
+    .obj-text {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.5;
+    }
+
+    /* ── SCENE 04: THE 4 TEEN STORIES (BINGO BANDWAGON) ─────────────────── */
+    .stories-scene {
+      background: radial-gradient(circle at 30% 20%, #4c0f5c 0%, #1c0824 80%);
+    }
+
+    .story-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .story-tab-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--paper-white);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 0.7rem 1.6rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .story-tab-btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .story-tab-btn.active {
+      background: var(--electric-yellow);
+      color: var(--dark-night);
+      border-color: var(--electric-yellow);
+    }
+
+    .story-showcase {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .story-narrative-card {
+      background: var(--paper-white);
+      color: var(--ink-dark);
+      border-radius: 24px;
+      padding: 2.75rem;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+
+    .story-badge {
+      display: inline-block;
+      background: #eed2ee;
+      color: var(--primary-purple);
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .story-
